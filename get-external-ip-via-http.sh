@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# requires: curl
+# requires: HTTPie
 
-curl --silent ipecho.net/plain
+http --print=b get ipecho.net/plain
 
