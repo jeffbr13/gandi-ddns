@@ -16,5 +16,3 @@ else
 	echo "Error: must have either drill or dig installed."
 	exit 1
 fi
-
-
