@@ -5,7 +5,7 @@
 # set -x
 set -euo pipefail
 
-EXTERNAL_IP=$(./get-external-ip-via-dns.sh)
+EXTERNAL_IP=$(./get-external-ip-via-dns.sh || ./get-external-ip-via-http.sh)
 
 DNS_TYPE=${DNS_TYPE:-'A'}
 DNS_TTL=${DNS_TTL:-900}
