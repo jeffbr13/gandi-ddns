@@ -6,7 +6,7 @@ dnsType: "A"
 
 secretName: ""
 
-schedule: "*/5 * * * *"
+schedule: "@hourly"
 
 image:
   repository: jeffbr13/gandi-ddns
