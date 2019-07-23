@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gandi-ddns.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "gandi-ddns.name" . }}
+    helm.sh/chart: {{ include "gandi-ddns.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:
+  DNS_DOMAIN: "{{ .Values.dnsDomain }}"
+  DNS_RECORD: "{{ .Values.dnsRecord }}"
+  DNS_TYPE: "{{ .Values.dnsType }}"

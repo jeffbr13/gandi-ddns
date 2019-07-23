@@ -1,6 +1,9 @@
 gandi-ddns
 ==========
 
+Update Gandi DNS with the computer's external IP address.
+
+
 Usage
 -----
 
@@ -25,3 +28,15 @@ The following parameters can be set via environment variables:
 - `DNS_RECORD`: e.g. `"@"` or `"subdomain"`
 - `DNS_TYPE` (optional): `"A"`
 - `DNS_TTL` (optional): `900` seconds
+
+
+Installation
+------------
+
+### Kubernetes
+
+```sh
+kubectl create namespace $NAMESPACE
+kubectl --namespace=$NAMESPACE create secret generic gandi-livedns-api-key --from-literal=GANDI_API_KEY=$(read -s)
+helm install --namespace=$NAMESPACE gandi-ddns --set secretName="gandi-livedns-api-key" --set dnsDomain="…" --set dnsRecord="…"
+```
